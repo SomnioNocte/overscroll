@@ -28,10 +28,6 @@ https://github.com/user-attachments/assets/2ba308d5-cd1f-4a9b-a929-bdb40016911c
 A modifier that applies nestedScrollConnection and binds its overscroll animation to graphicsLayer for offset.
 If you need to apply your own overscroll animation use delegateOverscroll.
 
-### `delegateOverscroll`
-
-Modifier that uses nestedScrollConnection under the hood and uses the passed animatable as the overscroll position state.
-
 ``` Kotlin
 fun Modifier.bouncedOverscroll(
     mainScroll: ScrollableState,
@@ -42,6 +38,11 @@ fun Modifier.bouncedOverscroll(
     onGestureDown: () -> Unit = {  }
 )
 ```
+
+### `delegateOverscroll`
+
+Modifier that uses nestedScrollConnection under the hood and uses the passed animatable as the overscroll position state.
+
 
 In addition to the iOS scrolling effect, this functionality has more practical uses, such as smoothly closing a modal window using scrolling.
 
