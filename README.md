@@ -28,13 +28,13 @@ https://github.com/user-attachments/assets/2ba308d5-cd1f-4a9b-a929-bdb40016911c
 Add it in your settings.gradle.kts at the end of repositories:
 
 ```kotlin
-	dependencyResolutionManagement {
-		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-		repositories {
-			mavenCentral()
-			maven { url = uri("https://jitpack.io") } // <--
-		}
-	}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        mavenCentral()
+        maven { url = uri("https://jitpack.io") } // <--
+    }
+}
 ```
 
 Add the dependency:
