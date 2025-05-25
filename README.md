@@ -12,3 +12,9 @@ If you need to apply your own overscroll animation use delegateOverscroll.
 Modifier that uses nestedScrollConnection under the hood and uses the passed animatable as the overscroll position state.
 
 In addition to the iOS scrolling effect, this functionality has more practical uses, such as smoothly closing a modal window using scrolling.
+
+### TODO
+
+* State for gestures, with confirmation or rejection to simplify the implementation of UI gesture indicators.
+
+* Fix visual bugs when overscrolling.
