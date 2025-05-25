@@ -1,6 +1,7 @@
 package com.somnio_nocte.overscroll
 
 import androidx.compose.animation.core.Animatable
+import androidx.compose.animation.core.AnimationVector1D
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.ScrollableState
 import androidx.compose.runtime.remember
@@ -16,14 +17,16 @@ import kotlin.math.exp
  * */
 fun Modifier.bouncedOverscroll(
     mainScroll: ScrollableState,
+    overscrollOffset: Animatable<Float, AnimationVector1D>? = null,
     orientation: Orientation = Orientation.Vertical,
+    gestureThreshold: Int? = null,
     onGestureUp: () -> Unit = {  },
     onGestureDown: () -> Unit = {  }
 ) = composed {
-    val overscrollOffset = remember { Animatable(0f) }
+    val overscrollOffset = overscrollOffset ?: remember { Animatable(0f) }
 
     graphicsLayer {
         if(orientation == Orientation.Vertical) translationY = overscrollOffset.value / exp(1f)
         else translationX = overscrollOffset.value / exp(1f)
-    }.delegateOverscroll(mainScroll, overscrollOffset, orientation, onGestureUp, onGestureDown)
+    }.delegateOverscroll(mainScroll, overscrollOffset, orientation, gestureThreshold, onGestureUp, onGestureDown)
 }

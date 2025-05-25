@@ -21,11 +21,12 @@ private fun mainAxes(target: Velocity, orientation: Orientation): Float {
     return if(orientation == Orientation.Vertical) target.y else target.x
 }
 
-fun nestedBouncedScrollConnection(
+internal fun nestedBouncedScrollConnection(
     scrollState: ScrollableState,
     overscrollOffset: Animatable<Float, AnimationVector1D>,
     orientation: Orientation,
     scope: CoroutineScope,
+    gestureThreshold: Int? = null,
     onGestureDown: () -> Unit = {  },
     onGestureUp: () -> Unit = {  },
 ): NestedScrollConnection {
@@ -87,14 +88,28 @@ fun nestedBouncedScrollConnection(
                 else orientation == Orientation.Vertical
 
             if(isRightAxis) {
-                scope.launch { overscrollOffset.animateTo(0f, spring(1f, 200f), mainAxes(available, orientation) / 1.15f) }
+                val velocity = mainAxes(available, orientation)
 
-                if(overscrollOffset.value > 250f && mainAxes(available, orientation) > 1500f ||
-                    overscrollOffset.value > 125f && mainAxes(available, orientation) > 2500f)
-                    onGestureDown()
-                else if(overscrollOffset.value < 250f && mainAxes(available, orientation) < 1500f ||
-                    overscrollOffset.value < 125f && mainAxes(available, orientation) < 2500f)
-                    onGestureUp()
+                scope.launch { overscrollOffset.animateTo(0f, spring(1f, 200f), velocity / 1.15f) }
+
+                if(gestureThreshold != null) {
+                    if (overscrollOffset.value > gestureThreshold && velocity > 0f)
+                        onGestureDown()
+                    else if(overscrollOffset.value < -gestureThreshold && velocity < 0f)
+                        onGestureUp()
+                } else {
+                    if (
+                        overscrollOffset.value > 300f && velocity > 100f ||
+                        overscrollOffset.value > 200f && velocity > 2000f
+                    )
+                        onGestureDown()
+
+                    else if (
+                        overscrollOffset.value < -300f && velocity < -100f ||
+                        overscrollOffset.value < -200f && velocity < -2000f
+                    )
+                        onGestureUp()
+                }
 
                 return available
             } else {

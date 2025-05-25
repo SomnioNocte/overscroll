@@ -17,6 +17,7 @@ fun Modifier.delegateOverscroll(
     mainScroll: ScrollableState,
     overscrollOffset: Animatable<Float, AnimationVector1D>,
     orientation: Orientation = Orientation.Vertical,
+    gestureThreshold: Int? = null,
     onGestureUp: () -> Unit = {  },
     onGestureDown: () -> Unit = {  }
 ) = composed {
@@ -27,6 +28,7 @@ fun Modifier.delegateOverscroll(
             mainScroll,
             overscrollOffset,
             orientation,
+            gestureThreshold,
             onGestureDown,
             onGestureUp
         ) {
@@ -35,6 +37,7 @@ fun Modifier.delegateOverscroll(
                 overscrollOffset,
                 orientation,
                 scope,
+                gestureThreshold,
                 onGestureDown,
                 onGestureUp
             )
