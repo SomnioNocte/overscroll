@@ -23,12 +23,34 @@ Result:
 
 https://github.com/user-attachments/assets/2ba308d5-cd1f-4a9b-a929-bdb40016911c
 
+### Install
+
+Add it in your settings.gradle.kts at the end of repositories:
+
+```kotlin
+	dependencyResolutionManagement {
+		repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+		repositories {
+			mavenCentral()
+			maven { url = uri("https://jitpack.io") } // <--
+		}
+	}
+```
+
+Add the dependency:
+
+```kotlin
+dependencies {
+    implementation("com.github.SomnioNocte:overscroll:0.1.0")
+}
+```
+
 ### `bouncedOverscroll`
 
 A modifier that applies nestedScrollConnection and binds its overscroll animation to graphicsLayer for offset.
 If you need to apply your own overscroll animation use delegateOverscroll.
 
-``` Kotlin
+```kotlin
 fun Modifier.bouncedOverscroll(
     mainScroll: ScrollableState,
     overscrollOffset: Animatable<Float, AnimationVector1D>? = null,
@@ -43,7 +65,7 @@ fun Modifier.bouncedOverscroll(
 
 Modifier that uses nestedScrollConnection under the hood and uses the passed animatable as the overscroll position state.
 
-``` Kotlin
+```kotlin
 fun Modifier.delegateOverscroll(
     mainScroll: ScrollableState,
     overscrollOffset: Animatable<Float, AnimationVector1D>,
@@ -54,7 +76,7 @@ fun Modifier.delegateOverscroll(
 )
 ```
 
------
+### Use cases
 
 In addition to the iOS scrolling effect, this functionality has more practical uses, such as smoothly closing a modal window using scrolling or well-known refresh gesture.
 
