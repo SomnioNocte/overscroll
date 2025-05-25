@@ -1,6 +1,6 @@
 # Overscroll
 
-Overscroll is a simple API for creating spring effect on scroll and gestures on overscroll for your Jetpack Compose app.
+Overscroll is a library for creating spring effect on scroll and gestures on overscroll for your Jetpack Compose app.
 
 Example of use: 
 ```Kotlin
@@ -43,7 +43,7 @@ fun Modifier.bouncedOverscroll(
 
 Modifier that uses nestedScrollConnection under the hood and uses the passed animatable as the overscroll position state.
 
-In addition to the iOS scrolling effect, this functionality has more practical uses, such as smoothly closing a modal window using scrolling.
+In addition to the iOS scrolling effect, this functionality has more practical uses, such as smoothly closing a modal window using scrolling or well-known refresh gesture.
 
 [Sample app](https://github.com/SomnioNocte/overscroll/blob/master/app/src/main/java/com/somnio_nocte/overscroll/MainActivity.kt):
 

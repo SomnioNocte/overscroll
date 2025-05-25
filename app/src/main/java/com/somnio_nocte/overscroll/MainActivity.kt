@@ -23,6 +23,7 @@ import androidx.compose.material.icons.rounded.Refresh
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -92,6 +93,7 @@ class MainActivity : ComponentActivity() {
                             .bouncedOverscroll(
                                 scrollState,
                                 overscroll,
+                                gestureThreshold = 450,
                                 onGestureDown = { list = List(50) { colors.random() } }
                             ),
                         state = scrollState,
@@ -99,13 +101,15 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally,
                         contentPadding = innerPadding
                     ) {
-                        items(list) {
+                        items(list.size) {
                             Box(Modifier
                                 .animateItem()
                                 .fillMaxWidth(.6f)
                                 .height(64.dp)
-                                .background(it, RoundedCornerShape(32.dp))
-                            )
+                                .background(list[it], RoundedCornerShape(32.dp))
+                            ) {
+                                Text("$it", Modifier.align(Alignment.Center), color = Color.Black)
+                            }
                         }
                     }
                 }
