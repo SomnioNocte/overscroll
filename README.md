@@ -2,7 +2,7 @@
 
 Overscroll is a simple API for creating spring effect on scroll and gestures on overscroll for your Jetpack Compose app.
 
-Example of use:
+Example of use: [Result](docs/Example1.mp4)
 ```Kotlin
 val scrollState = rememberScrollState()
 
@@ -43,6 +43,5 @@ In addition to the iOS scrolling effect, this functionality has more practical u
 
 ### TODO
 
-* State for gestures, with confirmation or rejection to simplify the implementation of UI gesture indicators.
-
-* Fix visual bugs when overscrolling.
+1. [x] State for gestures, with confirmation or rejection to simplify the implementation of UI gesture indicators.
+2. [x] Fix visual bugs when overscrolling.
