@@ -9,6 +9,11 @@ import androidx.compose.ui.composed
 import androidx.compose.ui.graphics.graphicsLayer
 import kotlin.math.exp
 
+/**
+ * A modifier that applies nestedScrollConnection and binds its overscroll animation to graphicsLayer for offset.
+ *
+ * If you need to apply your own overscroll animation use delegateOverscroll.
+ * */
 fun Modifier.bouncedOverscroll(
     mainScroll: ScrollableState,
     orientation: Orientation = Orientation.Vertical,

@@ -10,6 +10,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.composed
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 
+/**
+ * Modifier that uses nestedScrollConnection under the hood and uses the passed animatable as the overscroll position state.
+ * */
 fun Modifier.delegateOverscroll(
     mainScroll: ScrollableState,
     overscrollOffset: Animatable<Float, AnimationVector1D>,
