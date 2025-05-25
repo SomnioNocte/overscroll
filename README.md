@@ -19,7 +19,7 @@ Column(
 }
 ```
 
-![Result](docs/Example1.mp4)
+https://github.com/SomnioNocte/overscroll/blob/master/docs/Example1.mp4
 
 ### `bouncedOverscroll`
 
