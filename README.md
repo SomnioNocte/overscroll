@@ -43,8 +43,11 @@ fun Modifier.bouncedOverscroll(
 
 Modifier that uses nestedScrollConnection under the hood and uses the passed animatable as the overscroll position state.
 
-
 In addition to the iOS scrolling effect, this functionality has more practical uses, such as smoothly closing a modal window using scrolling.
+
+[Sample app](https://github.com/SomnioNocte/overscroll/blob/master/app/src/main/java/com/somnio_nocte/overscroll/MainActivity.kt):
+
+https://github.com/user-attachments/assets/70296e0a-f616-4929-928c-77aa22114cbd
 
 ### TODO
 
