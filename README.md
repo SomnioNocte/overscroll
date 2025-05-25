@@ -43,6 +43,19 @@ fun Modifier.bouncedOverscroll(
 
 Modifier that uses nestedScrollConnection under the hood and uses the passed animatable as the overscroll position state.
 
+``` Kotlin
+fun Modifier.delegateOverscroll(
+    mainScroll: ScrollableState,
+    overscrollOffset: Animatable<Float, AnimationVector1D>,
+    orientation: Orientation = Orientation.Vertical,
+    gestureThreshold: Int? = null,
+    onGestureUp: () -> Unit = {  },
+    onGestureDown: () -> Unit = {  }
+)
+```
+
+-----
+
 In addition to the iOS scrolling effect, this functionality has more practical uses, such as smoothly closing a modal window using scrolling or well-known refresh gesture.
 
 [Sample app](https://github.com/SomnioNocte/overscroll/blob/master/app/src/main/java/com/somnio_nocte/overscroll/MainActivity.kt):
