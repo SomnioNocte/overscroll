@@ -18,8 +18,8 @@ Column(
     }
 }
 ```
-
-https://github.com/SomnioNocte/overscroll/raw/44ae7d35927b2ecddf353e5efcef840a9ebfb294/docs/Example1.mp4
+Result: 
+https://github.com/user-attachments/assets/2ba308d5-cd1f-4a9b-a929-bdb40016911c
 
 ### `bouncedOverscroll`
 
