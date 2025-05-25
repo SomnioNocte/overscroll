@@ -18,7 +18,9 @@ Column(
     }
 }
 ```
+
 Result: 
+
 https://github.com/user-attachments/assets/2ba308d5-cd1f-4a9b-a929-bdb40016911c
 
 ### `bouncedOverscroll`
